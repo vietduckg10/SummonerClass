@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "summonerclass:items/snow_golem_staff"
+  }
+}

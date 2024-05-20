@@ -1,0 +1,15 @@
+{
+  "type": "summonerclass:essence_extract",
+  "input": {
+    "item": "minecraft:totem_of_undying",
+    "count": 1
+  },
+  "addition_input":{
+    "item": "minecraft:air",
+    "count": 0
+  },
+  "output": {
+    "item": "summonerclass:illager_essence"
+  },
+  "time" : 1200
+}

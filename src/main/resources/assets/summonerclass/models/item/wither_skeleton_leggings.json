@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "summonerclass:items/wither_skeleton_leggings"
+  }
+}

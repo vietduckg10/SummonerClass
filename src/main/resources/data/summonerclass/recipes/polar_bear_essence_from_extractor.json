@@ -1,0 +1,15 @@
+{
+  "type": "summonerclass:essence_extract",
+  "input": {
+    "item": "minecraft:leather",
+    "count": 32
+  },
+  "addition_input":{
+    "item": "minecraft:cod",
+    "count": 32
+  },
+  "output": {
+    "item": "summonerclass:polar_bear_essence"
+  },
+  "time" : 1200
+}

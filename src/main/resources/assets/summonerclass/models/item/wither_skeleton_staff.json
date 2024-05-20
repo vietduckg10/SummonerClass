@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "summonerclass:items/wither_skeleton_staff"
+  }
+}

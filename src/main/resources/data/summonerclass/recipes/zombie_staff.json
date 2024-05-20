@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " LE",
+    " SL",
+    "S  "
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "L": {
+      "item": "minecraft:lapis_lazuli"
+    },
+    "E": {
+      "item": "summonerclass:zombie_essence"
+    }
+  },
+  "result": {
+    "item": "summonerclass:zombie_staff"
+  }
+}

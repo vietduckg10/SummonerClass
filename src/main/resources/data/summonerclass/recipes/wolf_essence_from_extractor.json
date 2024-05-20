@@ -1,0 +1,15 @@
+{
+  "type": "summonerclass:essence_extract",
+  "input": {
+    "item": "minecraft:leather",
+    "count": 32
+  },
+  "addition_input":{
+    "item": "minecraft:bone",
+    "count": 32
+  },
+  "output": {
+    "item": "summonerclass:wolf_essence"
+  },
+  "time" : 1200
+}

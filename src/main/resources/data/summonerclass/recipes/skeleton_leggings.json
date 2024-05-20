@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#E#",
+    "# #"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:iron_ingot"
+    },
+    "E": {
+      "item": "summonerclass:skeleton_essence"
+    }
+  },
+  "result": {
+    "item": "summonerclass:skeleton_leggings"
+  }
+}

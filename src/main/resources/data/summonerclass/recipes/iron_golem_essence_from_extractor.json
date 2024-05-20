@@ -1,0 +1,15 @@
+{
+  "type": "summonerclass:essence_extract",
+  "input": {
+    "item": "minecraft:iron_ingot",
+    "count": 64
+  },
+  "addition_input":{
+    "item": "minecraft:poppy",
+    "count": 8
+  },
+  "output": {
+    "item": "summonerclass:iron_golem_essence"
+  },
+  "time" : 1200
+}

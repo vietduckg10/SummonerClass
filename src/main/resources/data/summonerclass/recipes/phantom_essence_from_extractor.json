@@ -1,0 +1,15 @@
+{
+  "type": "summonerclass:essence_extract",
+  "input": {
+    "item": "minecraft:phantom_membrane",
+    "count": 32
+  },
+  "addition_input":{
+    "item": "minecraft:air",
+    "count": 0
+  },
+  "output": {
+    "item": "summonerclass:phantom_essence"
+  },
+  "time" : 1200
+}

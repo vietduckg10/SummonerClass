@@ -1,0 +1,15 @@
+{
+  "type": "summonerclass:essence_extract",
+  "input": {
+    "item": "minecraft:glass_bottle",
+    "count": 64
+  },
+  "addition_input":{
+    "item": "minecraft:red_mushroom",
+    "count": 64
+  },
+  "output": {
+    "item": "summonerclass:witch_essence"
+  },
+  "time" : 1200
+}

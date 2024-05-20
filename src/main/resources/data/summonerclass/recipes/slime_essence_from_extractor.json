@@ -1,0 +1,15 @@
+{
+  "type": "summonerclass:essence_extract",
+  "input": {
+    "item": "minecraft:slime_ball",
+    "count": 64
+  },
+  "addition_input":{
+    "item": "minecraft:air",
+    "count": 0
+  },
+  "output": {
+    "item": "summonerclass:slime_essence"
+  },
+  "time" : 1200
+}

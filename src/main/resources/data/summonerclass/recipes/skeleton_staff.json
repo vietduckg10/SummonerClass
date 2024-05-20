@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " LE",
+    " SL",
+    "S  "
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "L": {
+      "item": "minecraft:lapis_lazuli"
+    },
+    "E": {
+      "item": "summonerclass:skeleton_essence"
+    }
+  },
+  "result": {
+    "item": "summonerclass:skeleton_staff"
+  }
+}

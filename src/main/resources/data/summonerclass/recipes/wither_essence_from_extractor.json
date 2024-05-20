@@ -1,0 +1,15 @@
+{
+  "type": "summonerclass:essence_extract",
+  "input": {
+    "item": "minecraft:nether_star",
+    "count": 4
+  },
+  "addition_input":{
+    "item": "minecraft:air",
+    "count": 0
+  },
+  "output": {
+    "item": "summonerclass:wither_essence"
+  },
+  "time" : 1200
+}

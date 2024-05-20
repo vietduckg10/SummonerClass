@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#E#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:iron_ingot"
+    },
+    "E": {
+      "item": "summonerclass:polar_bear_essence"
+    }
+  },
+  "result": {
+    "item": "summonerclass:polar_bear_helmet"
+  }
+}

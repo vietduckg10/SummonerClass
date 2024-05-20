@@ -1,0 +1,28 @@
+{
+  "replace": false,
+  "entries": [
+    "summonerclass:essence_from_bee",
+    "summonerclass:essence_from_zombie",
+    "summonerclass:essence_from_spider",
+    "summonerclass:essence_from_skeleton",
+    "summonerclass:essence_from_creeper",
+    "summonerclass:essence_from_iron_golem",
+    "summonerclass:essence_from_enderman",
+    "summonerclass:essence_from_wolf",
+    "summonerclass:essence_from_wither_skeleton",
+    "summonerclass:essence_from_blaze",
+    "summonerclass:essence_from_phantom",
+    "summonerclass:essence_from_guardian",
+    "summonerclass:essence_from_polar_bear",
+    "summonerclass:essence_from_slime",
+    "summonerclass:essence_from_witch",
+    "summonerclass:essence_from_ghast",
+    "summonerclass:essence_from_snow_golem",
+    "summonerclass:essence_from_pillager",
+    "summonerclass:essence_from_vindicator",
+    "summonerclass:essence_from_evoker",
+    "summonerclass:essence_from_piglin",
+    "summonerclass:essence_from_piglin_brute",
+    "summonerclass:essence_from_wither"
+  ]
+}

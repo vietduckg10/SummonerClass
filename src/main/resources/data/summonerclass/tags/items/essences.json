@@ -1,0 +1,24 @@
+{
+  "replace": false,
+  "values": [
+    "summonerclass:bee_essence",
+    "summonerclass:zombie_essence",
+    "summonerclass:skeleton_essence",
+    "summonerclass:spider_essence",
+    "summonerclass:creeper_essence",
+    "summonerclass:enderman_essence",
+    "summonerclass:iron_golem_essence",
+    "summonerclass:wolf_essence",
+    "summonerclass:wither_skeleton_essence",
+    "summonerclass:blaze_essence",
+    "summonerclass:phantom_essence",
+    "summonerclass:polar_bear_essence",
+    "summonerclass:guardian_essence",
+    "summonerclass:slime_essence",
+    "summonerclass:witch_essence",
+    "summonerclass:ghast_essence",
+    "summonerclass:snow_golem_essence",
+    "summonerclass:illager_essence",
+    "summonerclass:piglin_essence"
+  ]
+}
