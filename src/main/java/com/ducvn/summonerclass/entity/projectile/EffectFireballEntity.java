@@ -1,8 +1,8 @@
 package com.ducvn.summonerclass.entity.projectile;
 
-import com.ducvn.summonerclass.config.SummonerClassConfig;
-import com.ducvn.summonerclass.enchantment.SummonerClassEnchantmentsRegister;
 import com.ducvn.summonerclass.item.armor.basic.GhastArmor;
+import com.ducvn.summonercoremod.config.SummonerCoreConfig;
+import com.ducvn.summonercoremod.enchantment.SummonerCoreEnchantmentsRegister;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.AreaEffectCloudEntity;
 import net.minecraft.entity.EntityType;
@@ -70,26 +70,26 @@ public class EffectFireballEntity extends FireballEntity {
                     if (witherHit){
                         areaeffectcloudentity.addEffect(new EffectInstance(
                                 Effects.WITHER,
-                                SummonerClassConfig.minion_wither_duration.get(),
-                                SummonerClassConfig.minion_wither_amplifier.get()));
+                                SummonerCoreConfig.minion_wither_duration.get(),
+                                SummonerCoreConfig.minion_wither_amplifier.get()));
                     }
                     if (poisonHit){
                         areaeffectcloudentity.addEffect(new EffectInstance(
                                 Effects.POISON,
-                                SummonerClassConfig.minion_poison_duration.get(),
-                                SummonerClassConfig.minion_poison_amplifier.get()));
+                                SummonerCoreConfig.minion_poison_duration.get(),
+                                SummonerCoreConfig.minion_poison_amplifier.get()));
                     }
                     if (slownessHit){
                         areaeffectcloudentity.addEffect(new EffectInstance(
                                 Effects.MOVEMENT_SLOWDOWN,
-                                SummonerClassConfig.minion_slowness_duration.get(),
-                                SummonerClassConfig.minion_slowness_amplifier.get()));
+                                SummonerCoreConfig.minion_slowness_duration.get(),
+                                SummonerCoreConfig.minion_slowness_amplifier.get()));
                     }
                     if (weaknessHit){
                         areaeffectcloudentity.addEffect(new EffectInstance(
                                 Effects.WEAKNESS,
-                                SummonerClassConfig.minion_weakness_duration.get(),
-                                SummonerClassConfig.minion_weakness_amplifier.get()));
+                                SummonerCoreConfig.minion_weakness_duration.get(),
+                                SummonerCoreConfig.minion_weakness_amplifier.get()));
                     }
                     this.level.addFreshEntity(areaeffectcloudentity);
                 }
@@ -143,7 +143,7 @@ public class EffectFireballEntity extends FireballEntity {
             if (stack.getItem() instanceof ArmorItem){
                 if (stack.getItem() instanceof GhastArmor){
                     hasArmor = true;
-                    if (EnchantmentHelper.getEnchantments(stack).containsKey(SummonerClassEnchantmentsRegister.MINION_COMBINE.get())){
+                    if (EnchantmentHelper.getEnchantments(stack).containsKey(SummonerCoreEnchantmentsRegister.MINION_COMBINE.get())){
                         isCombined = true;
                     }
                 }
@@ -160,7 +160,7 @@ public class EffectFireballEntity extends FireballEntity {
             else {
                 for (ItemStack stack : armorList){
                     if (!(stack.getItem() instanceof GhastArmor)
-                            && !EnchantmentHelper.getEnchantments(stack).containsKey(SummonerClassEnchantmentsRegister.MINION_COMBINE.get())){
+                            && !EnchantmentHelper.getEnchantments(stack).containsKey(SummonerCoreEnchantmentsRegister.MINION_COMBINE.get())){
                         return false;
                     }
                 }

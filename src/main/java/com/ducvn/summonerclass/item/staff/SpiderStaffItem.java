@@ -4,6 +4,8 @@ import com.ducvn.summonerclass.entity.SummonerClassEntitiesRegister;
 import com.ducvn.summonerclass.entity.projectile.SpiderStaffProjectileEntity;
 import com.ducvn.summonerclass.entity.summonedmob.SummonedCreeperEntity;
 import com.ducvn.summonerclass.entity.summonedmob.SummonedSpiderEntity;
+import com.ducvn.summonercoremod.item.staff.IStaffItem;
+import com.ducvn.summonercoremod.item.staff.StaffItem;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.enchantment.IVanishable;
 import net.minecraft.entity.LivingEntity;

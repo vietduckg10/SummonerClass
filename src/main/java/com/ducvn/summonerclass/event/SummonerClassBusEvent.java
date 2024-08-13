@@ -1,7 +1,7 @@
 package com.ducvn.summonerclass.event;
 
 import com.ducvn.summonerclass.SummonerClassMod;
-import com.ducvn.summonerclass.event.loottable.EssenceLootModifier;
+import com.ducvn.summonercoremod.event.loottable.EssenceLootModifier;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.loot.GlobalLootModifierSerializer;
 import net.minecraftforge.event.RegistryEvent;

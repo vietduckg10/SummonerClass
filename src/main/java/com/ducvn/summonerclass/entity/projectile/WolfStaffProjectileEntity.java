@@ -1,11 +1,13 @@
 package com.ducvn.summonerclass.entity.projectile;
 
-import com.ducvn.summonerclass.config.SummonerClassConfig;
-import com.ducvn.summonerclass.enchantment.SummonerClassEnchantmentsRegister;
 import com.ducvn.summonerclass.entity.SummonerClassEntitiesRegister;
 import com.ducvn.summonerclass.entity.summonedmob.SummonedWolfEntity;
 import com.ducvn.summonerclass.item.armor.advanced.AdvancedWolfArmor;
 import com.ducvn.summonerclass.item.armor.basic.WolfArmor;
+import com.ducvn.summonercoremod.config.SummonerCoreConfig;
+import com.ducvn.summonercoremod.enchantment.SummonerCoreEnchantmentsRegister;
+import com.ducvn.summonercoremod.entity.projectile.IStaffProjectile;
+import com.ducvn.summonercoremod.entity.projectile.StaffProjectileEntity;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -100,39 +102,39 @@ public class WolfStaffProjectileEntity extends StaffProjectileEntity implements 
                     if (isSupreme){
                         wolf.setSupreme();
                     }
-                    if (hasMinionArmorEffect((PlayerEntity) this.getOwner(), SummonerClassEnchantmentsRegister.MINION_DAMAGE.get(), 3)
+                    if (hasMinionArmorEffect((PlayerEntity) this.getOwner(), SummonerCoreEnchantmentsRegister.MINION_DAMAGE.get(), 3)
                             || isSupreme){
-                        double bonusAttack = SummonerClassConfig.minion_damage.get();
+                        double bonusAttack = SummonerCoreConfig.minion_damage.get();
                         if (hasAdvanceArmorSet((PlayerEntity) this.getOwner())){
                             bonusAttack = bonusAttack + 0.5D;
                         }
                         wolf = (SummonedWolfEntity) addBonusAttack(wolf, wolf.getAttribute(Attributes.ATTACK_DAMAGE).getValue() * bonusAttack);
                     }
-                    if (hasMinionArmorEffect((PlayerEntity) this.getOwner(),SummonerClassEnchantmentsRegister.MINION_HEALTH.get(), 3)
+                    if (hasMinionArmorEffect((PlayerEntity) this.getOwner(),SummonerCoreEnchantmentsRegister.MINION_HEALTH.get(), 3)
                             || isSupreme){
-                        wolf = (SummonedWolfEntity) addBonusHealth(wolf, wolf.getAttribute(Attributes.MAX_HEALTH).getValue() * SummonerClassConfig.minion_health.get());
+                        wolf = (SummonedWolfEntity) addBonusHealth(wolf, wolf.getAttribute(Attributes.MAX_HEALTH).getValue() * SummonerCoreConfig.minion_health.get());
                     }
-                    if (hasMinionArmorEffect((PlayerEntity) this.getOwner(), SummonerClassEnchantmentsRegister.MINION_SELF_DESTRUCT.get(), 2)
+                    if (hasMinionArmorEffect((PlayerEntity) this.getOwner(), SummonerCoreEnchantmentsRegister.MINION_SELF_DESTRUCT.get(), 2)
                             || isSupreme){
                         wolf.setExplode();
                     }
-                    if (hasMinionArmorEffect((PlayerEntity) this.getOwner(),SummonerClassEnchantmentsRegister.MINION_MASTER_BUFF.get(), 2)
+                    if (hasMinionArmorEffect((PlayerEntity) this.getOwner(),SummonerCoreEnchantmentsRegister.MINION_MASTER_BUFF.get(), 2)
                             || isSupreme){
                         wolf.setBuffMaster();
                     }
-                    if (hasMinionArmorEffect((PlayerEntity) this.getOwner(),SummonerClassEnchantmentsRegister.MINION_SPEED.get(), 1)
+                    if (hasMinionArmorEffect((PlayerEntity) this.getOwner(),SummonerCoreEnchantmentsRegister.MINION_SPEED.get(), 1)
                             || isSupreme || hasFullArmorSet((PlayerEntity) this.getOwner())){
-                        wolf = (SummonedWolfEntity) addBonusSpeed(wolf, wolf.getAttribute(Attributes.MOVEMENT_SPEED).getValue() * SummonerClassConfig.minion_speed.get());
+                        wolf = (SummonedWolfEntity) addBonusSpeed(wolf, wolf.getAttribute(Attributes.MOVEMENT_SPEED).getValue() * SummonerCoreConfig.minion_speed.get());
                     }
-                    if (hasMinionArmorEffect((PlayerEntity) this.getOwner(),SummonerClassEnchantmentsRegister.MINION_KNOCKBACK_RESISTANCE.get(), 1)
+                    if (hasMinionArmorEffect((PlayerEntity) this.getOwner(),SummonerCoreEnchantmentsRegister.MINION_KNOCKBACK_RESISTANCE.get(), 1)
                             || isSupreme){
-                        wolf = (SummonedWolfEntity) addBonusKnockbackRes(wolf, SummonerClassConfig.minion_resistance.get());
+                        wolf = (SummonedWolfEntity) addBonusKnockbackRes(wolf, SummonerCoreConfig.minion_resistance.get());
                     }
-                    if (hasMinionArmorEffect((PlayerEntity) this.getOwner(),SummonerClassEnchantmentsRegister.MINION_INVISIBLE.get(), 0)
+                    if (hasMinionArmorEffect((PlayerEntity) this.getOwner(),SummonerCoreEnchantmentsRegister.MINION_INVISIBLE.get(), 0)
                             || isSupreme){
-                        wolf.addEffect(new EffectInstance(Effects.INVISIBILITY, SummonerClassConfig.minion_invisible_duration.get()));
+                        wolf.addEffect(new EffectInstance(Effects.INVISIBILITY, SummonerCoreConfig.minion_invisible_duration.get()));
                     }
-                    if (hasMinionArmorEffect((PlayerEntity) this.getOwner(),SummonerClassEnchantmentsRegister.MINION_MAGNETIC.get(), 0)
+                    if (hasMinionArmorEffect((PlayerEntity) this.getOwner(),SummonerCoreEnchantmentsRegister.MINION_MAGNETIC.get(), 0)
                             || isSupreme){
                         wolf.setMagnetize();
                     }
@@ -156,14 +158,14 @@ public class WolfStaffProjectileEntity extends StaffProjectileEntity implements 
                 return false;
             }
             if (!(stack.getItem() instanceof WolfArmor)
-                    && !EnchantmentHelper.getEnchantments(stack).containsKey(SummonerClassEnchantmentsRegister.MINION_COMBINE.get())){
+                    && !EnchantmentHelper.getEnchantments(stack).containsKey(SummonerCoreEnchantmentsRegister.MINION_COMBINE.get())){
                 isCombined = false;
             }
         }
         for (ItemStack stack : armorList){
             if (stack.getItem() instanceof WolfArmor){
                 haveAtLeastOne = true;
-                if (EnchantmentHelper.getEnchantments(stack).containsKey(SummonerClassEnchantmentsRegister.MINION_COMBINE.get())){
+                if (EnchantmentHelper.getEnchantments(stack).containsKey(SummonerCoreEnchantmentsRegister.MINION_COMBINE.get())){
                     return true;
                 }
             }

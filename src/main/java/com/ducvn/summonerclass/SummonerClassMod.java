@@ -1,38 +1,25 @@
 package com.ducvn.summonerclass;
 
-import com.ducvn.summonerclass.block.SummonerClassBlocksRegister;
-import com.ducvn.summonerclass.config.SummonerClassConfig;
-import com.ducvn.summonerclass.container.SummonerClassContainersRegister;
-import com.ducvn.summonerclass.data.recipe.SummonerClassRecipeTypesRegister;
-import com.ducvn.summonerclass.enchantment.SummonerClassEnchantmentsRegister;
 import com.ducvn.summonerclass.entity.SummonerClassEntitiesRegister;
 import com.ducvn.summonerclass.entity.SummonerClassEntitiesRenderer;
 import com.ducvn.summonerclass.item.SummonerClassItemsRegister;
-import com.ducvn.summonerclass.potion.SummonerClassPotionsRegister;
 import com.ducvn.summonerclass.renderer.*;
-import com.ducvn.summonerclass.screen.EssenceExtractorScreen;
-import com.ducvn.summonerclass.tileentity.SummonerClassTileEntitiesRegister;
 import net.minecraft.block.Block;
-import net.minecraft.client.gui.ScreenManager;
 import net.minecraft.client.renderer.entity.*;
-import net.minecraft.entity.monster.SpiderEntity;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DistExecutor;
-import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
 import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.fml.loading.FMLPaths;
 
 import java.util.UUID;
 
@@ -56,16 +43,9 @@ public class SummonerClassMod
 
         // Register mod stuff :3
         SummonerClassItemsRegister.init(eventBus);
-        SummonerClassBlocksRegister.init(eventBus);
-        SummonerClassTileEntitiesRegister.init(eventBus);
-        SummonerClassContainersRegister.init(eventBus);
-        SummonerClassRecipeTypesRegister.init(eventBus);
-        SummonerClassPotionsRegister.init(eventBus);
         SummonerClassEntitiesRegister.init(eventBus);
-        SummonerClassEnchantmentsRegister.init(eventBus);
 
         // Register ourselves for server and other game events we are interested in
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, SummonerClassConfig.SPEC, "SummonerClass-common.toml");
         MinecraftForge.EVENT_BUS.register(this);
     }
 
@@ -99,10 +79,6 @@ public class SummonerClassMod
         RenderingRegistry.registerEntityRenderingHandler(SummonerClassEntitiesRegister.SUMMONED_PIGLIN_BRUTE.get(), SummonedPiglinRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(SummonerClassEntitiesRegister.SUMMONED_HOGLIN.get(), HoglinRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(SummonerClassEntitiesRegister.SUMMONED_WITHER.get(), SummonedWitherRenderer::new);
-        event.enqueueWork(() -> {
-            ScreenManager.register(SummonerClassContainersRegister.ESSENCE_EXTRACTOR_CONTAINER.get(),
-                    EssenceExtractorScreen::new);
-        });
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event)

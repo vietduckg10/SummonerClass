@@ -1,11 +1,12 @@
 package com.ducvn.summonerclass.item.staff;
 
-import com.ducvn.summonerclass.enchantment.SummonerClassEnchantmentsRegister;
 import com.ducvn.summonerclass.entity.SummonerClassEntitiesRegister;
 import com.ducvn.summonerclass.entity.projectile.WitherSkeletonStaffProjectileEntity;
 import com.ducvn.summonerclass.entity.summonedmob.SummonedWitherSkeletonEntity;
 import com.ducvn.summonerclass.item.armor.advanced.AdvancedWitherSkeletonArmor;
 import com.ducvn.summonerclass.item.armor.basic.WitherSkeletonArmor;
+import com.ducvn.summonercoremod.enchantment.SummonerCoreEnchantmentsRegister;
+import com.ducvn.summonercoremod.item.staff.StaffItem;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.IVanishable;
@@ -148,14 +149,14 @@ public class WitherSkeletonStaffItem extends StaffItem implements IVanishable {
                 return false;
             }
             if (!(stack.getItem() instanceof WitherSkeletonArmor)
-                    && !EnchantmentHelper.getEnchantments(stack).containsKey(SummonerClassEnchantmentsRegister.MINION_COMBINE.get())){
+                    && !EnchantmentHelper.getEnchantments(stack).containsKey(SummonerCoreEnchantmentsRegister.MINION_COMBINE.get())){
                 isCombined = false;
             }
         }
         for (ItemStack stack : armorList){
             if (stack.getItem() instanceof WitherSkeletonArmor){
                 haveAtLeastOne = true;
-                if (EnchantmentHelper.getEnchantments(stack).containsKey(SummonerClassEnchantmentsRegister.MINION_COMBINE.get())){
+                if (EnchantmentHelper.getEnchantments(stack).containsKey(SummonerCoreEnchantmentsRegister.MINION_COMBINE.get())){
                     return true;
                 }
             }

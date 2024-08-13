@@ -1,7 +1,7 @@
 package com.ducvn.summonerclass.item.armor.basic;
 
-import com.ducvn.summonerclass.enchantment.SummonerClassEnchantmentsRegister;
 import com.ducvn.summonerclass.item.armor.SummonerArmor;
+import com.ducvn.summonercoremod.enchantment.SummonerCoreEnchantmentsRegister;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.inventory.EquipmentSlotType;
@@ -25,7 +25,7 @@ public class BeeArmor extends SummonerArmor {
         super.appendHoverText(stack, world, tooltip, flag);
         tooltip.add(new TranslationTextComponent(
                 "\u00A7aBee staff summon \u00A7r" +
-                        (EnchantmentHelper.getEnchantments(stack).containsKey(SummonerClassEnchantmentsRegister.MINION_COMBINE.get())
+                        (EnchantmentHelper.getEnchantments(stack).containsKey(SummonerCoreEnchantmentsRegister.MINION_COMBINE.get())
                                 ? "\u00A7a" + 2
                                 : (numBee == 2 ? "\u00A7a" : "\u00A7d") + numBee) + "\u00A7r" +
                         "\u00A7a more bees\u00A7r"

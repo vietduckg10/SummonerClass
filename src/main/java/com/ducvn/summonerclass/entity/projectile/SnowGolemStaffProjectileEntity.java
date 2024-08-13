@@ -1,10 +1,12 @@
 package com.ducvn.summonerclass.entity.projectile;
 
-import com.ducvn.summonerclass.enchantment.SummonerClassEnchantmentsRegister;
 import com.ducvn.summonerclass.entity.SummonerClassEntitiesRegister;
 import com.ducvn.summonerclass.entity.summonedmob.SummonedSnowGolemEntity;
 import com.ducvn.summonerclass.item.armor.advanced.AdvancedSnowGolemArmor;
 import com.ducvn.summonerclass.item.armor.basic.SnowGolemArmor;
+import com.ducvn.summonercoremod.enchantment.SummonerCoreEnchantmentsRegister;
+import com.ducvn.summonercoremod.entity.projectile.IStaffProjectile;
+import com.ducvn.summonercoremod.entity.projectile.StaffProjectileEntity;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -102,14 +104,14 @@ public class SnowGolemStaffProjectileEntity extends StaffProjectileEntity implem
                 return false;
             }
             if (!(stack.getItem() instanceof SnowGolemArmor)
-                    && !EnchantmentHelper.getEnchantments(stack).containsKey(SummonerClassEnchantmentsRegister.MINION_COMBINE.get())){
+                    && !EnchantmentHelper.getEnchantments(stack).containsKey(SummonerCoreEnchantmentsRegister.MINION_COMBINE.get())){
                 isCombined = false;
             }
         }
         for (ItemStack stack : armorList){
             if (stack.getItem() instanceof SnowGolemArmor){
                 haveAtLeastOne = true;
-                if (EnchantmentHelper.getEnchantments(stack).containsKey(SummonerClassEnchantmentsRegister.MINION_COMBINE.get())){
+                if (EnchantmentHelper.getEnchantments(stack).containsKey(SummonerCoreEnchantmentsRegister.MINION_COMBINE.get())){
                     return true;
                 }
             }

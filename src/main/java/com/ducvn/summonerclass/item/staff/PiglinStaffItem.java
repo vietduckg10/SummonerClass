@@ -1,7 +1,5 @@
 package com.ducvn.summonerclass.item.staff;
 
-import com.ducvn.summonerclass.config.SummonerClassConfig;
-import com.ducvn.summonerclass.enchantment.SummonerClassEnchantmentsRegister;
 import com.ducvn.summonerclass.entity.SummonerClassEntitiesRegister;
 import com.ducvn.summonerclass.entity.projectile.PiglinStaffProjectileEntity;
 import com.ducvn.summonerclass.entity.summonedmob.SummonedHoglinEntity;
@@ -9,7 +7,11 @@ import com.ducvn.summonerclass.entity.summonedmob.SummonedPiglinBruteEntity;
 import com.ducvn.summonerclass.entity.summonedmob.SummonedPiglinEntity;
 import com.ducvn.summonerclass.item.armor.advanced.AdvancedPiglinArmor;
 import com.ducvn.summonerclass.item.armor.basic.PiglinArmor;
-import com.ducvn.summonerclass.potion.SummonerClassPotionsRegister;
+import com.ducvn.summonercoremod.config.SummonerCoreConfig;
+import com.ducvn.summonercoremod.enchantment.SummonerCoreEnchantmentsRegister;
+import com.ducvn.summonercoremod.item.staff.IStaffItem;
+import com.ducvn.summonercoremod.item.staff.StaffItem;
+import com.ducvn.summonercoremod.potion.SummonerCorePotionsRegister;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
@@ -157,7 +159,7 @@ public class PiglinStaffItem extends StaffItem implements IVanishable, IStaffIte
                         piglin.setItemInHand(Hand.OFF_HAND,
                                 PotionUtils.setPotion(
                                         arrow,
-                                        SummonerClassPotionsRegister.WITHER_POTION.get())
+                                        SummonerCorePotionsRegister.WITHER_POTION.get())
                         );
                         piglin.setDropChance(EquipmentSlotType.OFFHAND, 0.0f);
                     }
@@ -200,35 +202,35 @@ public class PiglinStaffItem extends StaffItem implements IVanishable, IStaffIte
                     if (hasMinionSupremeEffect(stack)){
                         piglin.setSupreme();
                     }
-                    if (hasMinionArmorEffect((PlayerEntity) user, SummonerClassEnchantmentsRegister.MINION_DAMAGE.get(), 3)
+                    if (hasMinionArmorEffect((PlayerEntity) user,   SummonerCoreEnchantmentsRegister.MINION_DAMAGE.get(), 3)
                             || hasMinionSupremeEffect(stack)){
                         piglinCrossBow.enchant(Enchantments.QUICK_CHARGE, 1);
                     }
-                    if (hasMinionArmorEffect((PlayerEntity) user,SummonerClassEnchantmentsRegister.MINION_HEALTH.get(), 3)
+                    if (hasMinionArmorEffect((PlayerEntity) user,SummonerCoreEnchantmentsRegister.MINION_HEALTH.get(), 3)
                             || hasMinionSupremeEffect(stack)){
-                        piglin = (SummonedPiglinEntity) addBonusHealth(piglin, piglin.getAttribute(Attributes.MAX_HEALTH).getValue() * SummonerClassConfig.minion_health.get());
+                        piglin = (SummonedPiglinEntity) addBonusHealth(piglin, piglin.getAttribute(Attributes.MAX_HEALTH).getValue() * SummonerCoreConfig.minion_health.get());
                     }
-                    if (hasMinionArmorEffect((PlayerEntity) user,SummonerClassEnchantmentsRegister.MINION_SELF_DESTRUCT.get(), 2)
+                    if (hasMinionArmorEffect((PlayerEntity) user,SummonerCoreEnchantmentsRegister.MINION_SELF_DESTRUCT.get(), 2)
                             || hasMinionSupremeEffect(stack)){
                         piglin.setExplode();
                     }
-                    if (hasMinionArmorEffect((PlayerEntity) user,SummonerClassEnchantmentsRegister.MINION_MASTER_BUFF.get(), 2)
+                    if (hasMinionArmorEffect((PlayerEntity) user,SummonerCoreEnchantmentsRegister.MINION_MASTER_BUFF.get(), 2)
                             || hasMinionSupremeEffect(stack)){
                         piglin.setBuffMaster();
                     }
-                    if (hasMinionArmorEffect((PlayerEntity) user,SummonerClassEnchantmentsRegister.MINION_SPEED.get(), 1)
+                    if (hasMinionArmorEffect((PlayerEntity) user,SummonerCoreEnchantmentsRegister.MINION_SPEED.get(), 1)
                             || hasMinionSupremeEffect(stack)){
-                        piglin = (SummonedPiglinEntity) addBonusSpeed(piglin, piglin.getAttribute(Attributes.MOVEMENT_SPEED).getValue() * SummonerClassConfig.minion_speed.get());
+                        piglin = (SummonedPiglinEntity) addBonusSpeed(piglin, piglin.getAttribute(Attributes.MOVEMENT_SPEED).getValue() * SummonerCoreConfig.minion_speed.get());
                     }
-                    if (hasMinionArmorEffect((PlayerEntity) user,SummonerClassEnchantmentsRegister.MINION_KNOCKBACK_RESISTANCE.get(), 1)
+                    if (hasMinionArmorEffect((PlayerEntity) user,SummonerCoreEnchantmentsRegister.MINION_KNOCKBACK_RESISTANCE.get(), 1)
                             || hasMinionSupremeEffect(stack)){
-                        piglin = (SummonedPiglinEntity) addBonusKnockbackRes(piglin, SummonerClassConfig.minion_resistance.get());
+                        piglin = (SummonedPiglinEntity) addBonusKnockbackRes(piglin, SummonerCoreConfig.minion_resistance.get());
                     }
-                    if (hasMinionArmorEffect((PlayerEntity) user,SummonerClassEnchantmentsRegister.MINION_INVISIBLE.get(), 0)
+                    if (hasMinionArmorEffect((PlayerEntity) user,SummonerCoreEnchantmentsRegister.MINION_INVISIBLE.get(), 0)
                             || hasMinionSupremeEffect(stack)){
-                        piglin.addEffect(new EffectInstance(Effects.INVISIBILITY, SummonerClassConfig.minion_invisible_duration.get()));
+                        piglin.addEffect(new EffectInstance(Effects.INVISIBILITY, SummonerCoreConfig.minion_invisible_duration.get()));
                     }
-                    if (hasMinionArmorEffect((PlayerEntity) user,SummonerClassEnchantmentsRegister.MINION_MAGNETIC.get(), 0)
+                    if (hasMinionArmorEffect((PlayerEntity) user,SummonerCoreEnchantmentsRegister.MINION_MAGNETIC.get(), 0)
                             || hasMinionSupremeEffect(stack)){
                         piglin.setMagnetize();
                     }
@@ -296,14 +298,14 @@ public class PiglinStaffItem extends StaffItem implements IVanishable, IStaffIte
                 return false;
             }
             if (!(stack.getItem() instanceof PiglinArmor)
-                    && !EnchantmentHelper.getEnchantments(stack).containsKey(SummonerClassEnchantmentsRegister.MINION_COMBINE.get())){
+                    && !EnchantmentHelper.getEnchantments(stack).containsKey(SummonerCoreEnchantmentsRegister.MINION_COMBINE.get())){
                 isCombined = false;
             }
         }
         for (ItemStack stack : armorList){
             if (stack.getItem() instanceof PiglinArmor){
                 haveAtLeastOne = true;
-                if (EnchantmentHelper.getEnchantments(stack).containsKey(SummonerClassEnchantmentsRegister.MINION_COMBINE.get())){
+                if (EnchantmentHelper.getEnchantments(stack).containsKey(SummonerCoreEnchantmentsRegister.MINION_COMBINE.get())){
                     return true;
                 }
             }

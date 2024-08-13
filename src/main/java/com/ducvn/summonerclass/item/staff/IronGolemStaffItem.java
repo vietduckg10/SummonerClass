@@ -1,18 +1,16 @@
 package com.ducvn.summonerclass.item.staff;
 
-import com.ducvn.summonerclass.enchantment.SummonerClassEnchantmentsRegister;
 import com.ducvn.summonerclass.entity.SummonerClassEntitiesRegister;
 import com.ducvn.summonerclass.entity.projectile.IronGolemStaffProjectileEntity;
 import com.ducvn.summonerclass.entity.summonedmob.SummonedIronGolemEntity;
-import com.ducvn.summonerclass.item.armor.advanced.AdvancedIronGolemArmor;
-import com.ducvn.summonerclass.item.armor.basic.IronGolemArmor;
+import com.ducvn.summonercoremod.enchantment.SummonerCoreEnchantmentsRegister;
+import com.ducvn.summonercoremod.item.staff.IStaffItem;
+import com.ducvn.summonercoremod.item.staff.StaffItem;
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.IVanishable;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
@@ -109,7 +107,7 @@ public class IronGolemStaffItem extends StaffItem implements IVanishable, IStaff
             ironGolem.setAttackTarget(entity, user);
             ironGolem.setCustomName(new StringTextComponent(user.getScoreboardName() + "'s iron golem"));
             giveMinionEnchantment(ironGolem, stack, (PlayerEntity) user);
-            if (hasMinionArmorEffect((PlayerEntity) user,SummonerClassEnchantmentsRegister.MINION_MAGNETIC.get(), 0)
+            if (hasMinionArmorEffect((PlayerEntity) user, SummonerCoreEnchantmentsRegister.MINION_MAGNETIC.get(), 0)
                     || hasMinionSupremeEffect(stack)){
                 ironGolem.setMagnetize();
             }

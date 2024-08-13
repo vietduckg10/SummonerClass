@@ -1,14 +1,16 @@
 package com.ducvn.summonerclass.entity.projectile;
 
-import com.ducvn.summonerclass.config.SummonerClassConfig;
-import com.ducvn.summonerclass.enchantment.SummonerClassEnchantmentsRegister;
 import com.ducvn.summonerclass.entity.SummonerClassEntitiesRegister;
 import com.ducvn.summonerclass.entity.summonedmob.SummonedPillagerEntity;
 import com.ducvn.summonerclass.entity.summonedmob.SummonedRavagerEntity;
 import com.ducvn.summonerclass.entity.summonedmob.SummonedVindicatorEntity;
 import com.ducvn.summonerclass.item.armor.advanced.AdvancedIllagerArmor;
 import com.ducvn.summonerclass.item.armor.basic.IllagerArmor;
-import com.ducvn.summonerclass.potion.SummonerClassPotionsRegister;
+import com.ducvn.summonercoremod.config.SummonerCoreConfig;
+import com.ducvn.summonercoremod.enchantment.SummonerCoreEnchantmentsRegister;
+import com.ducvn.summonercoremod.entity.projectile.IStaffProjectile;
+import com.ducvn.summonercoremod.entity.projectile.StaffProjectileEntity;
+import com.ducvn.summonercoremod.potion.SummonerCorePotionsRegister;
 import com.google.common.collect.Lists;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
@@ -94,7 +96,7 @@ public class IllagerStaffProjectileEntity extends StaffProjectileEntity implemen
                             illager.setItemInHand(Hand.OFF_HAND,
                                     PotionUtils.setPotion(
                                             arrow,
-                                            SummonerClassPotionsRegister.WITHER_POTION.get())
+                                            SummonerCorePotionsRegister.WITHER_POTION.get())
                             );
                             illager.setDropChance(EquipmentSlotType.OFFHAND, 0.0f);
                         }
@@ -137,35 +139,35 @@ public class IllagerStaffProjectileEntity extends StaffProjectileEntity implemen
                         if (isSupreme){
                             illager.setSupreme();
                         }
-                        if (hasMinionArmorEffect((PlayerEntity) this.getOwner(), SummonerClassEnchantmentsRegister.MINION_DAMAGE.get(), 3)
+                        if (hasMinionArmorEffect((PlayerEntity) this.getOwner(), SummonerCoreEnchantmentsRegister.MINION_DAMAGE.get(), 3)
                                 || isSupreme){
                             illagerCrossBow.enchant(Enchantments.QUICK_CHARGE, 1);
                         }
-                        if (hasMinionArmorEffect((PlayerEntity) this.getOwner(),SummonerClassEnchantmentsRegister.MINION_HEALTH.get(), 3)
+                        if (hasMinionArmorEffect((PlayerEntity) this.getOwner(),SummonerCoreEnchantmentsRegister.MINION_HEALTH.get(), 3)
                                 || isSupreme){
-                            illager = (SummonedPillagerEntity) addBonusHealth(illager, illager.getAttribute(Attributes.MAX_HEALTH).getValue() * SummonerClassConfig.minion_health.get());
+                            illager = (SummonedPillagerEntity) addBonusHealth(illager, illager.getAttribute(Attributes.MAX_HEALTH).getValue() * SummonerCoreConfig.minion_health.get());
                         }
-                        if (hasMinionArmorEffect((PlayerEntity) this.getOwner(),SummonerClassEnchantmentsRegister.MINION_SELF_DESTRUCT.get(), 2)
+                        if (hasMinionArmorEffect((PlayerEntity) this.getOwner(),SummonerCoreEnchantmentsRegister.MINION_SELF_DESTRUCT.get(), 2)
                                 || isSupreme){
                             illager.setExplode();
                         }
-                        if (hasMinionArmorEffect((PlayerEntity) this.getOwner(),SummonerClassEnchantmentsRegister.MINION_MASTER_BUFF.get(), 2)
+                        if (hasMinionArmorEffect((PlayerEntity) this.getOwner(),SummonerCoreEnchantmentsRegister.MINION_MASTER_BUFF.get(), 2)
                                 || isSupreme){
                             illager.setBuffMaster();
                         }
-                        if (hasMinionArmorEffect((PlayerEntity) this.getOwner(),SummonerClassEnchantmentsRegister.MINION_SPEED.get(), 1)
+                        if (hasMinionArmorEffect((PlayerEntity) this.getOwner(),SummonerCoreEnchantmentsRegister.MINION_SPEED.get(), 1)
                                 || isSupreme){
-                            illager = (SummonedPillagerEntity) addBonusSpeed(illager, illager.getAttribute(Attributes.MOVEMENT_SPEED).getValue() * SummonerClassConfig.minion_speed.get());
+                            illager = (SummonedPillagerEntity) addBonusSpeed(illager, illager.getAttribute(Attributes.MOVEMENT_SPEED).getValue() * SummonerCoreConfig.minion_speed.get());
                         }
-                        if (hasMinionArmorEffect((PlayerEntity) this.getOwner(),SummonerClassEnchantmentsRegister.MINION_KNOCKBACK_RESISTANCE.get(), 1)
+                        if (hasMinionArmorEffect((PlayerEntity) this.getOwner(),SummonerCoreEnchantmentsRegister.MINION_KNOCKBACK_RESISTANCE.get(), 1)
                                 || isSupreme){
-                            illager = (SummonedPillagerEntity) addBonusKnockbackRes(illager, SummonerClassConfig.minion_resistance.get());
+                            illager = (SummonedPillagerEntity) addBonusKnockbackRes(illager, SummonerCoreConfig.minion_resistance.get());
                         }
-                        if (hasMinionArmorEffect((PlayerEntity) this.getOwner(),SummonerClassEnchantmentsRegister.MINION_INVISIBLE.get(), 0)
+                        if (hasMinionArmorEffect((PlayerEntity) this.getOwner(),SummonerCoreEnchantmentsRegister.MINION_INVISIBLE.get(), 0)
                                 || isSupreme){
-                            illager.addEffect(new EffectInstance(Effects.INVISIBILITY, SummonerClassConfig.minion_invisible_duration.get()));
+                            illager.addEffect(new EffectInstance(Effects.INVISIBILITY, SummonerCoreConfig.minion_invisible_duration.get()));
                         }
-                        if (hasMinionArmorEffect((PlayerEntity) this.getOwner(),SummonerClassEnchantmentsRegister.MINION_MAGNETIC.get(), 0)
+                        if (hasMinionArmorEffect((PlayerEntity) this.getOwner(),SummonerCoreEnchantmentsRegister.MINION_MAGNETIC.get(), 0)
                                 || isSupreme){
                             illager.setMagnetize();
                         }
@@ -253,14 +255,14 @@ public class IllagerStaffProjectileEntity extends StaffProjectileEntity implemen
                 return false;
             }
             if (!(stack.getItem() instanceof IllagerArmor)
-                    && !EnchantmentHelper.getEnchantments(stack).containsKey(SummonerClassEnchantmentsRegister.MINION_COMBINE.get())){
+                    && !EnchantmentHelper.getEnchantments(stack).containsKey(SummonerCoreEnchantmentsRegister.MINION_COMBINE.get())){
                 isCombined = false;
             }
         }
         for (ItemStack stack : armorList){
             if (stack.getItem() instanceof IllagerArmor){
                 haveAtLeastOne = true;
-                if (EnchantmentHelper.getEnchantments(stack).containsKey(SummonerClassEnchantmentsRegister.MINION_COMBINE.get())){
+                if (EnchantmentHelper.getEnchantments(stack).containsKey(SummonerCoreEnchantmentsRegister.MINION_COMBINE.get())){
                     return true;
                 }
             }

@@ -1,10 +1,11 @@
 package com.ducvn.summonerclass.entity.projectile;
 
-import com.ducvn.summonerclass.enchantment.SummonerClassEnchantmentsRegister;
 import com.ducvn.summonerclass.entity.SummonerClassEntitiesRegister;
 import com.ducvn.summonerclass.entity.summonedmob.SummonedEndermanEntity;
-import com.ducvn.summonerclass.item.armor.advanced.AdvancedEndermanArmor;
 import com.ducvn.summonerclass.item.armor.basic.EndermanArmor;
+import com.ducvn.summonercoremod.enchantment.SummonerCoreEnchantmentsRegister;
+import com.ducvn.summonercoremod.entity.projectile.IStaffProjectile;
+import com.ducvn.summonercoremod.entity.projectile.StaffProjectileEntity;
 import net.minecraft.block.Blocks;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityType;
@@ -104,14 +105,14 @@ public class EndermanStaffProjectileEntity extends StaffProjectileEntity impleme
                 return false;
             }
             if (!(stack.getItem() instanceof EndermanArmor)
-                    && !EnchantmentHelper.getEnchantments(stack).containsKey(SummonerClassEnchantmentsRegister.MINION_COMBINE.get())){
+                    && !EnchantmentHelper.getEnchantments(stack).containsKey(SummonerCoreEnchantmentsRegister.MINION_COMBINE.get())){
                 isCombined = false;
             }
         }
         for (ItemStack stack : armorList){
             if (stack.getItem() instanceof EndermanArmor){
                 haveAtLeastOne = true;
-                if (EnchantmentHelper.getEnchantments(stack).containsKey(SummonerClassEnchantmentsRegister.MINION_COMBINE.get())){
+                if (EnchantmentHelper.getEnchantments(stack).containsKey(SummonerCoreEnchantmentsRegister.MINION_COMBINE.get())){
                     return true;
                 }
             }

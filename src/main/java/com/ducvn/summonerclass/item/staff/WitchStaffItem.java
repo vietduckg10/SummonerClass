@@ -3,6 +3,8 @@ package com.ducvn.summonerclass.item.staff;
 import com.ducvn.summonerclass.entity.SummonerClassEntitiesRegister;
 import com.ducvn.summonerclass.entity.projectile.WitchStaffProjectileEntity;
 import com.ducvn.summonerclass.entity.summonedmob.SummonedWitchEntity;
+import com.ducvn.summonercoremod.item.staff.IStaffItem;
+import com.ducvn.summonercoremod.item.staff.StaffItem;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.enchantment.IVanishable;
 import net.minecraft.entity.LivingEntity;

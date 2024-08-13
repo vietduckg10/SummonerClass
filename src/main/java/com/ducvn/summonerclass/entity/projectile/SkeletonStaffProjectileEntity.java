@@ -1,12 +1,14 @@
 package com.ducvn.summonerclass.entity.projectile;
 
-import com.ducvn.summonerclass.config.SummonerClassConfig;
-import com.ducvn.summonerclass.enchantment.SummonerClassEnchantmentsRegister;
 import com.ducvn.summonerclass.entity.SummonerClassEntitiesRegister;
 import com.ducvn.summonerclass.entity.summonedmob.SummonedSkeletonEntity;
 import com.ducvn.summonerclass.item.armor.advanced.AdvancedSkeletonArmor;
 import com.ducvn.summonerclass.item.armor.basic.SkeletonArmor;
-import com.ducvn.summonerclass.potion.SummonerClassPotionsRegister;
+import com.ducvn.summonercoremod.config.SummonerCoreConfig;
+import com.ducvn.summonercoremod.enchantment.SummonerCoreEnchantmentsRegister;
+import com.ducvn.summonercoremod.entity.projectile.IStaffProjectile;
+import com.ducvn.summonercoremod.entity.projectile.StaffProjectileEntity;
+import com.ducvn.summonercoremod.potion.SummonerCorePotionsRegister;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.EntityType;
@@ -102,7 +104,7 @@ public class SkeletonStaffProjectileEntity extends StaffProjectileEntity impleme
                             skeleton.setItemInHand(Hand.OFF_HAND,
                                     PotionUtils.setPotion(
                                             Items.TIPPED_ARROW.getDefaultInstance(),
-                                            SummonerClassPotionsRegister.WITHER_POTION.get())
+                                            SummonerCorePotionsRegister.WITHER_POTION.get())
                             );
                             skeleton.setDropChance(EquipmentSlotType.OFFHAND, 0.0f);
                         }
@@ -160,40 +162,40 @@ public class SkeletonStaffProjectileEntity extends StaffProjectileEntity impleme
                     if (isSupreme){
                         skeleton.setSupreme();
                     }
-                    if (hasMinionArmorEffect((PlayerEntity) this.getOwner(),SummonerClassEnchantmentsRegister.MINION_DAMAGE.get(), 3)
+                    if (hasMinionArmorEffect((PlayerEntity) this.getOwner(), SummonerCoreEnchantmentsRegister.MINION_DAMAGE.get(), 3)
                             || isSupreme){
                         if (summonMelee && num >= (numSkeleton - 1)){
-                            skeleton = (SummonedSkeletonEntity) addBonusAttack(skeleton, skeleton.getAttribute(Attributes.ATTACK_DAMAGE).getValue() * SummonerClassConfig.minion_damage.get());
+                            skeleton = (SummonedSkeletonEntity) addBonusAttack(skeleton, skeleton.getAttribute(Attributes.ATTACK_DAMAGE).getValue() * SummonerCoreConfig.minion_damage.get());
                         }
                         else {
                             skeletonBow.enchant(Enchantments.POWER_ARROWS, 1);
                         }
                     }
-                    if (hasMinionArmorEffect((PlayerEntity) this.getOwner(),SummonerClassEnchantmentsRegister.MINION_HEALTH.get(), 3)
+                    if (hasMinionArmorEffect((PlayerEntity) this.getOwner(),SummonerCoreEnchantmentsRegister.MINION_HEALTH.get(), 3)
                             || isSupreme){
-                        skeleton = (SummonedSkeletonEntity) addBonusHealth(skeleton, skeleton.getAttribute(Attributes.MAX_HEALTH).getValue() * SummonerClassConfig.minion_health.get());
+                        skeleton = (SummonedSkeletonEntity) addBonusHealth(skeleton, skeleton.getAttribute(Attributes.MAX_HEALTH).getValue() * SummonerCoreConfig.minion_health.get());
                     }
-                    if (hasMinionArmorEffect((PlayerEntity) this.getOwner(), SummonerClassEnchantmentsRegister.MINION_SELF_DESTRUCT.get(), 2)
+                    if (hasMinionArmorEffect((PlayerEntity) this.getOwner(), SummonerCoreEnchantmentsRegister.MINION_SELF_DESTRUCT.get(), 2)
                             || isSupreme){
                         skeleton.setExplode();
                     }
-                    if (hasMinionArmorEffect((PlayerEntity) this.getOwner(),SummonerClassEnchantmentsRegister.MINION_MASTER_BUFF.get(), 2)
+                    if (hasMinionArmorEffect((PlayerEntity) this.getOwner(),SummonerCoreEnchantmentsRegister.MINION_MASTER_BUFF.get(), 2)
                             || isSupreme){
                         skeleton.setBuffMaster();
                     }
-                    if (hasMinionArmorEffect((PlayerEntity) this.getOwner(),SummonerClassEnchantmentsRegister.MINION_SPEED.get(), 1)
+                    if (hasMinionArmorEffect((PlayerEntity) this.getOwner(),SummonerCoreEnchantmentsRegister.MINION_SPEED.get(), 1)
                             || isSupreme){
-                        skeleton = (SummonedSkeletonEntity) addBonusSpeed(skeleton, skeleton.getAttribute(Attributes.MOVEMENT_SPEED).getValue() * SummonerClassConfig.minion_speed.get());
+                        skeleton = (SummonedSkeletonEntity) addBonusSpeed(skeleton, skeleton.getAttribute(Attributes.MOVEMENT_SPEED).getValue() * SummonerCoreConfig.minion_speed.get());
                     }
-                    if (hasMinionArmorEffect((PlayerEntity) this.getOwner(),SummonerClassEnchantmentsRegister.MINION_KNOCKBACK_RESISTANCE.get(), 1)
+                    if (hasMinionArmorEffect((PlayerEntity) this.getOwner(),SummonerCoreEnchantmentsRegister.MINION_KNOCKBACK_RESISTANCE.get(), 1)
                             || isSupreme){
-                        skeleton = (SummonedSkeletonEntity) addBonusKnockbackRes(skeleton, SummonerClassConfig.minion_resistance.get());
+                        skeleton = (SummonedSkeletonEntity) addBonusKnockbackRes(skeleton, SummonerCoreConfig.minion_resistance.get());
                     }
-                    if (hasMinionArmorEffect((PlayerEntity) this.getOwner(),SummonerClassEnchantmentsRegister.MINION_INVISIBLE.get(), 0)
+                    if (hasMinionArmorEffect((PlayerEntity) this.getOwner(),SummonerCoreEnchantmentsRegister.MINION_INVISIBLE.get(), 0)
                             || isSupreme){
-                        skeleton.addEffect(new EffectInstance(Effects.INVISIBILITY, SummonerClassConfig.minion_invisible_duration.get()));
+                        skeleton.addEffect(new EffectInstance(Effects.INVISIBILITY, SummonerCoreConfig.minion_invisible_duration.get()));
                     }
-                    if (hasMinionArmorEffect((PlayerEntity) this.getOwner(),SummonerClassEnchantmentsRegister.MINION_MAGNETIC.get(), 0)
+                    if (hasMinionArmorEffect((PlayerEntity) this.getOwner(),SummonerCoreEnchantmentsRegister.MINION_MAGNETIC.get(), 0)
                             || isSupreme){
                         skeleton.setMagnetize();
                     }
@@ -266,14 +268,14 @@ public class SkeletonStaffProjectileEntity extends StaffProjectileEntity impleme
                 return false;
             }
             if (!(stack.getItem() instanceof SkeletonArmor)
-                    && !EnchantmentHelper.getEnchantments(stack).containsKey(SummonerClassEnchantmentsRegister.MINION_COMBINE.get())){
+                    && !EnchantmentHelper.getEnchantments(stack).containsKey(SummonerCoreEnchantmentsRegister.MINION_COMBINE.get())){
                 isCombined = false;
             }
         }
         for (ItemStack stack : armorList){
             if (stack.getItem() instanceof SkeletonArmor){
                 haveAtLeastOne = true;
-                if (EnchantmentHelper.getEnchantments(stack).containsKey(SummonerClassEnchantmentsRegister.MINION_COMBINE.get())){
+                if (EnchantmentHelper.getEnchantments(stack).containsKey(SummonerCoreEnchantmentsRegister.MINION_COMBINE.get())){
                     return true;
                 }
             }

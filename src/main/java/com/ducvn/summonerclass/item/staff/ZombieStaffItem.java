@@ -1,11 +1,13 @@
 package com.ducvn.summonerclass.item.staff;
 
-import com.ducvn.summonerclass.enchantment.SummonerClassEnchantmentsRegister;
 import com.ducvn.summonerclass.entity.SummonerClassEntitiesRegister;
 import com.ducvn.summonerclass.entity.projectile.ZombieStaffProjectileEntity;
 import com.ducvn.summonerclass.entity.summonedmob.SummonedZombieEntity;
 import com.ducvn.summonerclass.item.armor.advanced.AdvancedZombieArmor;
 import com.ducvn.summonerclass.item.armor.basic.ZombieArmor;
+import com.ducvn.summonercoremod.enchantment.SummonerCoreEnchantmentsRegister;
+import com.ducvn.summonercoremod.item.staff.IStaffItem;
+import com.ducvn.summonercoremod.item.staff.StaffItem;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.IVanishable;
@@ -156,14 +158,14 @@ public class ZombieStaffItem extends StaffItem implements IVanishable, IStaffIte
                 return false;
             }
             if (!(stack.getItem() instanceof ZombieArmor)
-                    && !EnchantmentHelper.getEnchantments(stack).containsKey(SummonerClassEnchantmentsRegister.MINION_COMBINE.get())){
+                    && !EnchantmentHelper.getEnchantments(stack).containsKey(SummonerCoreEnchantmentsRegister.MINION_COMBINE.get())){
                 isCombined = false;
             }
         }
         for (ItemStack stack : armorList){
             if (stack.getItem() instanceof ZombieArmor){
                 haveAtLeastOne = true;
-                if (EnchantmentHelper.getEnchantments(stack).containsKey(SummonerClassEnchantmentsRegister.MINION_COMBINE.get())){
+                if (EnchantmentHelper.getEnchantments(stack).containsKey(SummonerCoreEnchantmentsRegister.MINION_COMBINE.get())){
                     return true;
                 }
             }

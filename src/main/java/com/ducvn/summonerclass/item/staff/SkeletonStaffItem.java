@@ -1,13 +1,15 @@
 package com.ducvn.summonerclass.item.staff;
 
-import com.ducvn.summonerclass.config.SummonerClassConfig;
-import com.ducvn.summonerclass.enchantment.SummonerClassEnchantmentsRegister;
 import com.ducvn.summonerclass.entity.SummonerClassEntitiesRegister;
 import com.ducvn.summonerclass.entity.projectile.SkeletonStaffProjectileEntity;
 import com.ducvn.summonerclass.entity.summonedmob.SummonedSkeletonEntity;
 import com.ducvn.summonerclass.item.armor.advanced.AdvancedSkeletonArmor;
 import com.ducvn.summonerclass.item.armor.basic.SkeletonArmor;
-import com.ducvn.summonerclass.potion.SummonerClassPotionsRegister;
+import com.ducvn.summonercoremod.config.SummonerCoreConfig;
+import com.ducvn.summonercoremod.enchantment.SummonerCoreEnchantmentsRegister;
+import com.ducvn.summonercoremod.item.staff.IStaffItem;
+import com.ducvn.summonercoremod.item.staff.StaffItem;
+import com.ducvn.summonercoremod.potion.SummonerCorePotionsRegister;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
@@ -126,7 +128,7 @@ public class SkeletonStaffItem extends StaffItem implements IVanishable, IStaffI
                     skeleton.setItemInHand(Hand.OFF_HAND,
                             PotionUtils.setPotion(
                                     Items.TIPPED_ARROW.getDefaultInstance(),
-                                    SummonerClassPotionsRegister.WITHER_POTION.get())
+                                    SummonerCorePotionsRegister.WITHER_POTION.get())
                     );
                     skeleton.setDropChance(EquipmentSlotType.OFFHAND, 0.0f);
                 }
@@ -184,40 +186,40 @@ public class SkeletonStaffItem extends StaffItem implements IVanishable, IStaffI
             if (hasMinionSupremeEffect(stack)){
                 skeleton.setSupreme();
             }
-            if (hasMinionArmorEffect((PlayerEntity) user, SummonerClassEnchantmentsRegister.MINION_DAMAGE.get(), 3)
+            if (hasMinionArmorEffect((PlayerEntity) user, SummonerCoreEnchantmentsRegister.MINION_DAMAGE.get(), 3)
                     || hasMinionSupremeEffect(stack)){
                 if (summonMelee && num >= (numSkeleton - 1)){
-                    skeleton = (SummonedSkeletonEntity) addBonusAttack(skeleton, skeleton.getAttribute(Attributes.ATTACK_DAMAGE).getValue() * SummonerClassConfig.minion_damage.get());
+                    skeleton = (SummonedSkeletonEntity) addBonusAttack(skeleton, skeleton.getAttribute(Attributes.ATTACK_DAMAGE).getValue() * SummonerCoreConfig.minion_damage.get());
                 }
                 else {
                     skeletonBow.enchant(Enchantments.POWER_ARROWS, 1);
                 }
             }
-            if (hasMinionArmorEffect((PlayerEntity) user,SummonerClassEnchantmentsRegister.MINION_HEALTH.get(), 3)
+            if (hasMinionArmorEffect((PlayerEntity) user,SummonerCoreEnchantmentsRegister.MINION_HEALTH.get(), 3)
                     || hasMinionSupremeEffect(stack)){
-                skeleton = (SummonedSkeletonEntity) addBonusHealth(skeleton, skeleton.getAttribute(Attributes.MAX_HEALTH).getValue() * SummonerClassConfig.minion_health.get());
+                skeleton = (SummonedSkeletonEntity) addBonusHealth(skeleton, skeleton.getAttribute(Attributes.MAX_HEALTH).getValue() * SummonerCoreConfig.minion_health.get());
             }
-            if (hasMinionArmorEffect((PlayerEntity) user,SummonerClassEnchantmentsRegister.MINION_SELF_DESTRUCT.get(), 2)
+            if (hasMinionArmorEffect((PlayerEntity) user,SummonerCoreEnchantmentsRegister.MINION_SELF_DESTRUCT.get(), 2)
                     || hasMinionSupremeEffect(stack)){
                 skeleton.setExplode();
             }
-            if (hasMinionArmorEffect((PlayerEntity) user,SummonerClassEnchantmentsRegister.MINION_MASTER_BUFF.get(), 2)
+            if (hasMinionArmorEffect((PlayerEntity) user,SummonerCoreEnchantmentsRegister.MINION_MASTER_BUFF.get(), 2)
                     || hasMinionSupremeEffect(stack)){
                 skeleton.setBuffMaster();
             }
-            if (hasMinionArmorEffect((PlayerEntity) user,SummonerClassEnchantmentsRegister.MINION_SPEED.get(), 1)
+            if (hasMinionArmorEffect((PlayerEntity) user,SummonerCoreEnchantmentsRegister.MINION_SPEED.get(), 1)
                     || hasMinionSupremeEffect(stack)){
-                skeleton = (SummonedSkeletonEntity) addBonusSpeed(skeleton, skeleton.getAttribute(Attributes.MOVEMENT_SPEED).getValue() * SummonerClassConfig.minion_speed.get());
+                skeleton = (SummonedSkeletonEntity) addBonusSpeed(skeleton, skeleton.getAttribute(Attributes.MOVEMENT_SPEED).getValue() * SummonerCoreConfig.minion_speed.get());
             }
-            if (hasMinionArmorEffect((PlayerEntity) user,SummonerClassEnchantmentsRegister.MINION_KNOCKBACK_RESISTANCE.get(), 1)
+            if (hasMinionArmorEffect((PlayerEntity) user,SummonerCoreEnchantmentsRegister.MINION_KNOCKBACK_RESISTANCE.get(), 1)
                     || hasMinionSupremeEffect(stack)){
-                skeleton = (SummonedSkeletonEntity) addBonusKnockbackRes(skeleton, SummonerClassConfig.minion_resistance.get());
+                skeleton = (SummonedSkeletonEntity) addBonusKnockbackRes(skeleton, SummonerCoreConfig.minion_resistance.get());
             }
-            if (hasMinionArmorEffect((PlayerEntity) user,SummonerClassEnchantmentsRegister.MINION_INVISIBLE.get(), 0)
+            if (hasMinionArmorEffect((PlayerEntity) user,SummonerCoreEnchantmentsRegister.MINION_INVISIBLE.get(), 0)
                     || hasMinionSupremeEffect(stack)){
-                skeleton.addEffect(new EffectInstance(Effects.INVISIBILITY, SummonerClassConfig.minion_invisible_duration.get()));
+                skeleton.addEffect(new EffectInstance(Effects.INVISIBILITY, SummonerCoreConfig.minion_invisible_duration.get()));
             }
-            if (hasMinionArmorEffect((PlayerEntity) user,SummonerClassEnchantmentsRegister.MINION_MAGNETIC.get(), 0)
+            if (hasMinionArmorEffect((PlayerEntity) user,SummonerCoreEnchantmentsRegister.MINION_MAGNETIC.get(), 0)
                     || hasMinionSupremeEffect(stack)){
                 skeleton.setMagnetize();
             }
@@ -287,14 +289,14 @@ public class SkeletonStaffItem extends StaffItem implements IVanishable, IStaffI
                 return false;
             }
             if (!(stack.getItem() instanceof SkeletonArmor)
-                    && !EnchantmentHelper.getEnchantments(stack).containsKey(SummonerClassEnchantmentsRegister.MINION_COMBINE.get())){
+                    && !EnchantmentHelper.getEnchantments(stack).containsKey(SummonerCoreEnchantmentsRegister.MINION_COMBINE.get())){
                 isCombined = false;
             }
         }
         for (ItemStack stack : armorList){
             if (stack.getItem() instanceof SkeletonArmor){
                 haveAtLeastOne = true;
-                if (EnchantmentHelper.getEnchantments(stack).containsKey(SummonerClassEnchantmentsRegister.MINION_COMBINE.get())){
+                if (EnchantmentHelper.getEnchantments(stack).containsKey(SummonerCoreEnchantmentsRegister.MINION_COMBINE.get())){
                     return true;
                 }
             }
