@@ -1,6 +1,6 @@
 package com.ducvn.summonerclass.item.armor.basic;
 
-import com.ducvn.summonerclass.item.armor.SummonerArmor;
+import com.ducvn.summonercoremod.item.armor.SummonerArmor;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.IArmorMaterial;
