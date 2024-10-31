@@ -37,11 +37,11 @@ public class WitherStaffItem extends StaffItem implements IVanishable, IStaffIte
                 )
         );
         tooltip.add(new TranslationTextComponent(
-                        "\u00A7aRight click to shoot projectile\u00A7r"
+                        "\u00A7bRight click to shoot projectile\u00A7r"
                 )
         );
         tooltip.add(new TranslationTextComponent(
-                        "\u00A7aShift-right click to summon minion attack the entity hurt you recently\u00A7r"
+                        "\u00A7bShift-right click to summon minion attack the entity hurt you recently\u00A7r"
                 )
         );
     }

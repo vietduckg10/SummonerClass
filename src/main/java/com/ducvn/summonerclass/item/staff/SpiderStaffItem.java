@@ -33,11 +33,15 @@ public class SpiderStaffItem extends StaffItem implements IVanishable, IStaffIte
     public void appendHoverText(ItemStack stack, @Nullable World world, List<ITextComponent> tooltip, ITooltipFlag flag) {
         super.appendHoverText(stack, world, tooltip, flag);
         tooltip.add(new TranslationTextComponent(
-                        "\u00A7aSummon 3 spiders when hit enemy, right click to shoot projectile\u00A7r"
+                        "\u00A7aSummon 3 spiders when hit enemy\u00A7r"
                 )
         );
         tooltip.add(new TranslationTextComponent(
-                        "\u00A7aShift-right click to summon minion attack the entity hurt you recently\u00A7r"
+                        "\u00A7bRight click to shoot projectile\u00A7r"
+                )
+        );
+        tooltip.add(new TranslationTextComponent(
+                        "\u00A7bShift-right click to summon minion attack the entity hurt you recently\u00A7r"
                 )
         );
     }
